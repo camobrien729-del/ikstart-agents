@@ -1,0 +1,22 @@
+<p style="margin:0 0 6px;font-size:12px;font-weight:bold;letter-spacing:2px;color:#3550A8;">{{ A.kicker }}</p>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#111111;">{{ A.intro }}</p>
+{% if site_changes %}
+<p style="margin:0 0 6px;font-size:13px;font-weight:bold;color:#111111;">{{ A.site }}</p>
+<ul style="margin:0 0 14px;padding-left:18px;font-size:13px;line-height:1.5;color:#111111;">
+{% for c in site_changes %}<li>{{ c }}</li>{% endfor %}
+</ul>
+{% endif %}
+<p style="margin:0 0 8px;font-size:14px;line-height:1.5;color:#111111;">{{ A.how | safe }}</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;margin:0 0 14px;border-collapse:collapse;font-size:13px;color:#111111;">
+  <tr style="background:#111111;color:#FFD320;font-weight:bold;">
+    <td style="padding:6px 10px;">code</td><td style="padding:6px 10px;">decision</td><td style="padding:6px 10px;"></td></tr>
+  <tr style="background:#FFFFFF;"><td style="padding:6px 10px;font-weight:bold;">{{ approve.code }}</td><td style="padding:6px 10px;font-weight:bold;">JA</td><td style="padding:6px 10px;">{{ A.yes }}</td></tr>
+  <tr style="background:#FFFFFF;"><td style="padding:6px 10px;font-weight:bold;">{{ approve.code }}</td><td style="padding:6px 10px;font-weight:bold;">ENDRE</td><td style="padding:6px 10px;">{{ A.change | safe }}</td></tr>
+  <tr style="background:#FFFFFF;"><td style="padding:6px 10px;font-weight:bold;">{{ approve.code }}</td><td style="padding:6px 10px;font-weight:bold;">NEI</td><td style="padding:6px 10px;">{{ A.no }}</td></tr>
+</table>
+{% if approve.sheet_url %}
+<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td style="background:#111111;border-radius:24px;"><a href="{{ approve.sheet_url }}" style="display:inline-block;padding:12px 22px;font-size:15px;font-weight:bold;color:#FFD320;text-decoration:none;">{{ A.button }} &rarr;</a></td>
+</tr></table>
+{% endif %}
+<p style="margin:10px 0 0;font-size:12px;color:#5A5A5A;">{{ A.time }}</p>

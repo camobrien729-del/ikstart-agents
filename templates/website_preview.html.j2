@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ A.web_title }}</title></head>
+<body style="margin:0;padding:0;background:#ECEAE3;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ECEAE3;"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#FFFFFF;font-family:Arial,Helvetica,sans-serif;color:#111111;">
+<tr><td style="background:#FFD320;padding:20px 24px;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="64" valign="middle"><img src="{{ site_url }}/img/logo.png" width="52" alt="IK Start" style="display:block;border:0;"></td>
+    <td valign="middle" style="font-family:Impact,'Arial Black',Arial,sans-serif;font-size:28px;line-height:1.05;color:#111111;">{{ A.web_title | upper }}</td>
+  </tr></table>
+</td></tr>
+<tr><td style="background:#FFF4C2;border:3px dashed #111111;padding:20px 24px;">
+{% set site_changes = changes %}
+{% include "_approve_box.html.j2" %}
+</td></tr>
+<tr><td style="padding:16px 24px;font-size:13px;color:#5A5A5A;"><a href="{{ site_url }}" style="color:#3550A8;">{{ site_url }}</a></td></tr>
+</table></td></tr></table>
+</body></html>

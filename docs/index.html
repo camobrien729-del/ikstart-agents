@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IK Start · Herrer og Kvinner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&display=swap">
+<style>
+:root{--y:#FFD320;--k:#111111;--b:#3550A8;--paper:#F4F2EC;--line:#E4E1D8;--mut:#5A5A5A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Archivo,Arial,sans-serif;color:var(--k);background:#fff;line-height:1.5}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.d{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;line-height:1.02}
+.k{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--b)}
+header{background:var(--k);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:56px;height:40px;object-fit:contain}
+.brand span{font-size:26px}
+.tabs{display:flex;gap:6px;background:#222;border-radius:999px;padding:4px}
+.tabs button{font:800 13px Archivo,Arial;letter-spacing:1px;text-transform:uppercase;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;background:transparent;color:#fff}
+.tabs button[aria-pressed="true"]{background:var(--y);color:var(--k)}
+.hero{background:var(--y)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding-top:44px;padding-bottom:44px}
+.hero h1{font-size:clamp(40px,6vw,76px)}
+.hero p.hook{font-size:19px;font-weight:600;margin-top:12px;max-width:44ch}
+.card-next{background:var(--k);color:#fff;border-radius:16px;padding:24px}
+.card-next .when{font-size:15px;color:#cfcfcf;margin-top:6px}
+.btn{display:inline-block;background:var(--k);color:var(--y);font-weight:800;text-decoration:none;border-radius:999px;padding:12px 22px;margin-top:16px}
+.card-next .btn{background:var(--y);color:var(--k)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(30px,4vw,44px);margin:4px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.box{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.score{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--k);color:#fff;border-radius:12px;padding:14px 16px;margin:10px 0 14px}
+.score b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:34px;color:var(--y)}
+.meta{font-size:13px;color:var(--mut)}
+.fix{display:flex;gap:16px;align-items:center}
+.date{flex:none;width:72px;text-align:center;background:var(--paper);border-radius:10px;padding:10px 0}
+.date.home{background:var(--y)}
+.date .n{font-family:Anton,Impact,sans-serif;font-size:30px;line-height:1}
+.date .m{font-size:11px;font-weight:800;letter-spacing:1px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{background:var(--paper);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+tr.us{background:#FFF4C2;font-weight:800}
+.signup{background:var(--k);color:#fff}
+.signup .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.signup .btn{background:var(--y);color:var(--k);margin-top:0}
+footer{padding:24px 0;font-size:13px;color:var(--mut)}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="#"><img src="img/logo.png" alt="IK Start"><span class="d">IK Start</span></a>
+  <div class="tabs" role="group" aria-label="Lag">
+    <button type="button" data-team="kvinner" aria-pressed="true">Kvinner</button>
+    <button type="button" data-team="herrer" aria-pressed="false">Herrer</button>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div><p class="k" id="hero-k">Neste hjemmekamp</p><h1 class="d" id="hero-title">IK Start</h1><p class="hook" id="hero-hook"></p></div>
+  <div class="card-next" id="hero-card"></div>
+</div></div>
+
+<main class="wrap">
+  <section><p class="k">Kamper</p><h2 class="d" id="next-h">Neste kamper</h2><div class="grid" id="next"></div></section>
+  <section><p class="k">Resultater</p><h2 class="d">Siste resultater</h2><div class="grid" id="results"></div></section>
+  <section><p class="k">Tabell</p><h2 class="d" id="table-h">Tabellen</h2><div class="box"><table id="table"></table></div></section>
+  <section><p class="k">Nyheter</p><h2 class="d">Siste nytt</h2><div class="grid" id="news"></div></section>
+</main>
+
+<div class="signup" id="signup-box" hidden><div class="wrap" style="padding-top:32px;padding-bottom:32px">
+  <div><p class="k" style="color:var(--y)">Game Update</p><h2 class="d" style="font-size:36px;margin-top:4px">Få kampoppdateringen på e-post</h2></div>
+  <a class="btn" id="signup" href="#">Meld meg på</a>
+</div></div>
+<footer class="wrap" id="updated"></footer>
+
+<script>
+const MONTHS=["JAN","FEB","MAR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DES"];
+const DAYS=["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let feed=null, team="kvinner";
+
+function fixture(m,t){
+  const d=new Date(m.date+"T12:00:00"), home=m.home_team===t.name;
+  return `<div class="box"><div class="fix"><div class="date ${home?"home":""}"><div class="n">${d.getDate()}</div><div class="m">${MONTHS[d.getMonth()]}</div></div>
+  <div><p class="k">${esc(m.competition)} · ${home?"Hjemme":"Borte"}</p><p style="font-weight:800;font-size:17px">${esc(m.home_team)} – ${esc(m.away_team)}</p>
+  <p class="meta">${DAYS[d.getDay()]} ${esc(m.kickoff)} · ${esc(m.venue)}</p></div></div>
+  ${m.text?`<p style="margin-top:12px">${esc(m.text)}</p>`:""}
+  ${m.ticket_url?`<a class="btn" href="${esc(m.ticket_url)}">Kjøp billett →</a>`:""}</div>`;
+}
+function result(m){
+  return `<div class="box"><p class="k">${esc(m.competition)} · ${esc(m.date)}</p>
+  <div class="score"><span>${esc(m.home_team)}</span><b>${m.home_goals}–${m.away_goals}</b><span>${esc(m.away_team)}</span></div>
+  <p style="font-weight:800;font-size:17px">${esc(m.headline)}</p><p style="margin-top:6px">${esc(m.text)}</p>
+  ${m.scorers&&m.scorers.length?`<p class="meta" style="margin-top:8px">Mål: ${m.scorers.map(esc).join(", ")}${m.attendance?` · ${m.attendance} tilskuere`:""}</p>`:""}</div>`;
+}
+function render(){
+  const t=feed.teams[team];
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.team===team));
+  const h=feed.homepage;
+  if(!h){
+    document.getElementById("hero-k").textContent="Kvinner og Herrer";
+    document.getElementById("hero-title").textContent="IK Start";
+    document.getElementById("hero-hook").textContent="Resultater, kamper, tabell og nyheter – oppdatert hver uke.";
+    document.getElementById("hero-card").innerHTML=`<p class="k" style="color:var(--y)">Billetter</p><p class="d" style="font-size:34px;margin-top:6px">Se kampene på Sparebanken Norge Arena</p>`+
+      (feed.links&&feed.links.tickets?`<a class="btn" href="${esc(feed.links.tickets)}">Kjøp billett →</a>`:"");
+  }
+  if(h){
+    const d=new Date(h.date+"T12:00:00");
+    document.getElementById("hero-title").textContent=`${h.home_team} – ${h.away_team}`;
+    document.getElementById("hero-hook").textContent=h.hook||"";
+    document.getElementById("hero-card").innerHTML=`<p class="k" style="color:var(--y)">${esc(h.competition)}</p>
+      <p class="d" style="font-size:34px;margin-top:6px">${d.getDate()}. ${MONTHS[d.getMonth()]} · ${esc(h.kickoff)}</p>
+      <p class="when">${esc(h.venue)}</p>${h.ticket_url?`<a class="btn" href="${esc(h.ticket_url)}">Kjøp billett →</a>`:""}`;
+  }
+  document.getElementById("next").innerHTML=t.next_matches.map(m=>fixture(m,t)).join("")||"<p>Ingen kamper lagt inn ennå.</p>";
+  document.getElementById("results").innerHTML=t.recent_results.map(result).join("")||"<p>Ingen resultater ennå.</p>";
+  document.getElementById("table-h").textContent="Tabellen · "+t.label;
+  document.getElementById("table").innerHTML=!t.table.length?`<tr><td>Tabellen kommer snart.</td></tr>`:`<tr><th>#</th><th>Lag</th><th>K</th><th>V</th><th>U</th><th>T</th><th>MF</th><th>P</th></tr>`+
+    t.table.map(r=>`<tr class="${r.club.includes("Start")?"us":""}"><td>${r.pos}</td><td>${esc(r.club)}</td><td>${r.played}</td><td>${r.won}</td><td>${r.drawn}</td><td>${r.lost}</td><td>${esc(r.gd)}</td><td><b>${r.pts}</b></td></tr>`).join("");
+  document.getElementById("news").innerHTML=feed.news.filter(n=>n.team===team||n.team==="both")
+    .map(n=>`<div class="box"><p style="font-weight:800;font-size:17px">${esc(n.headline)}</p><p style="margin-top:6px">${esc(n.text)}</p>${n.link?`<a class="btn" href="${esc(n.link)}">Les mer →</a>`:""}</div>`).join("")||"<p>Ingen nyheter ennå.</p>";
+  document.getElementById("updated").textContent="Oppdatert "+feed.updated.replace("T"," ");
+  const su=feed.links&&feed.links.newsletter_signup;
+  if(su&&su.startsWith("http")){document.getElementById("signup").href=su;document.getElementById("signup-box").hidden=false;}
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{team=b.dataset.team;render();}));
+fetch("data/site.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{feed=j;render();})
+  .catch(()=>{document.getElementById("hero-title").textContent="Innhold kommer snart";});
+</script>
+</body>
+</html>

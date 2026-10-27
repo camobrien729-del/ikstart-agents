@@ -1,0 +1,6 @@
+match_id,team,competition,round,date,kickoff,home_team,away_team,venue,home_goals,away_goals,scorers,attendance,ticket_url,status
+K-2026-20,kvinner,COOP-ligaen,20,2026-10-04,14:00,Start Kvinner,Tromsø IL,Sparebanken Norge Arena Kristiansand,1,0,Marion Glatved-Prahl Myrvold 22',773,,played
+K-2026-21,kvinner,COOP-ligaen,21,2026-10-17,15:00,Bryne,Start Kvinner,Bryne stadion,,,,,,upcoming
+K-2026-22,kvinner,COOP-ligaen,22,2026-10-24,13:00,Start Kvinner,Fyllingsdalen,Sparebanken Norge Arena Kristiansand,,,,,https://ikstart.ticketco.events/no/nb/e/start_kvinner__fyllingsdagen,upcoming
+H-DEMO-01,herrer,EKSEMPEL-liga,25,2026-10-03,18:00,IK Start,Eksempel IL,Sparebanken Norge Arena Kristiansand,2,1,Eksempel Spiller 34'; Eksempel Spiller 78',2100,,played
+H-DEMO-02,herrer,EKSEMPEL-liga,26,2026-10-18,17:00,IK Start,Eksempel FK,Sparebanken Norge Arena Kristiansand,,,,,https://ikstart.ticketco.shop/,upcoming

@@ -1,0 +1,181 @@
+{
+  "updated": "2026-10-27T13:31",
+  "language": "nb",
+  "homepage": null,
+  "teams": {
+    "kvinner": {
+      "name": "Start Kvinner",
+      "label": "Kvinner",
+      "recent_results": [
+        {
+          "match_id": "K-2026-20",
+          "team": "kvinner",
+          "competition": "1. divisjon kvinner",
+          "round": "20",
+          "date": "2026-10-04",
+          "kickoff": "14:00",
+          "home_team": "Start Kvinner",
+          "away_team": "Tromsø IL",
+          "venue": "Sparebanken Norge Arena Kristiansand",
+          "home_goals": 1,
+          "away_goals": 0,
+          "scorers": [
+            "Marion Glatved-Prahl Myrvold 22'"
+          ],
+          "attendance": 773,
+          "ticket_url": "",
+          "status": "played",
+          "headline": "Start Kvinner slo Tromsø IL 1–0",
+          "text": "Start Kvinner slo Tromsø IL 1–0 på Sparebanken Norge Arena Kristiansand. Mål: Marion Glatved-Prahl Myrvold 22'. 773 tilskuere."
+        }
+      ],
+      "next_matches": [],
+      "table": [
+        {
+          "pos": 1,
+          "played": 21,
+          "won": 17,
+          "drawn": 3,
+          "lost": 1,
+          "pts": 54,
+          "club": "IK Start",
+          "gd": "+35"
+        },
+        {
+          "pos": 2,
+          "played": 21,
+          "won": 14,
+          "drawn": 6,
+          "lost": 1,
+          "pts": 48,
+          "club": "Åsane",
+          "gd": "+26"
+        },
+        {
+          "pos": 3,
+          "played": 21,
+          "won": 14,
+          "drawn": 4,
+          "lost": 3,
+          "pts": 46,
+          "club": "Viking",
+          "gd": "+39"
+        },
+        {
+          "pos": 4,
+          "played": 21,
+          "won": 14,
+          "drawn": 3,
+          "lost": 4,
+          "pts": 45,
+          "club": "Arna-Bjørnar",
+          "gd": "+46"
+        },
+        {
+          "pos": 5,
+          "played": 21,
+          "won": 9,
+          "drawn": 4,
+          "lost": 8,
+          "pts": 31,
+          "club": "Tromsø",
+          "gd": "+17"
+        },
+        {
+          "pos": 6,
+          "played": 21,
+          "won": 8,
+          "drawn": 2,
+          "lost": 11,
+          "pts": 26,
+          "club": "Grei Kvinner Elite",
+          "gd": "-10"
+        },
+        {
+          "pos": 7,
+          "played": 21,
+          "won": 6,
+          "drawn": 6,
+          "lost": 9,
+          "pts": 24,
+          "club": "Odds Ballklubb",
+          "gd": "-5"
+        },
+        {
+          "pos": 8,
+          "played": 21,
+          "won": 8,
+          "drawn": 0,
+          "lost": 13,
+          "pts": 24,
+          "club": "Fyllingsdalen",
+          "gd": "-17"
+        },
+        {
+          "pos": 9,
+          "played": 21,
+          "won": 7,
+          "drawn": 2,
+          "lost": 12,
+          "pts": 23,
+          "club": "Bryne",
+          "gd": "-15"
+        },
+        {
+          "pos": 10,
+          "played": 21,
+          "won": 6,
+          "drawn": 3,
+          "lost": 12,
+          "pts": 21,
+          "club": "Kolbotn",
+          "gd": "-12"
+        },
+        {
+          "pos": 11,
+          "played": 21,
+          "won": 3,
+          "drawn": 1,
+          "lost": 17,
+          "pts": 10,
+          "club": "Frigg",
+          "gd": "-43"
+        },
+        {
+          "pos": 12,
+          "played": 21,
+          "won": 3,
+          "drawn": 0,
+          "lost": 18,
+          "pts": 9,
+          "club": "Klepp",
+          "gd": "-61"
+        }
+      ]
+    },
+    "herrer": {
+      "name": "IK Start",
+      "label": "Herrer",
+      "recent_results": [],
+      "next_matches": [],
+      "table": []
+    }
+  },
+  "news": [
+    {
+      "team": "kvinner",
+      "headline": "Marion Glatved-Prahl Myrvold",
+      "text": "The 18-year-old from Vennesla scored the winner against Tromsø. She signed a two-year professional contract this season and has played for Norway's U18 team.",
+      "link": "",
+      "image_url": ""
+    }
+  ],
+  "links": {
+    "website": "https://www.ikstart.no",
+    "tickets": "https://ikstart.ticketco.shop/",
+    "instagram": "https://www.instagram.com/startkvinner/",
+    "facebook": "https://www.facebook.com/startkvinner",
+    "volunteer": "https://www.ikstartkvinner.no/frivillig",
+    "newsletter_signup": ""
+  }
+}

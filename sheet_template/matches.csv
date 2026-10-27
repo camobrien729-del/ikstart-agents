@@ -1,0 +1,4 @@
+match_id,team,competition,round,date,kickoff,home_team,away_team,venue,home_goals,away_goals,scorers,attendance,ticket_url,status
+K-2026-20,kvinner,1. divisjon kvinner,20,2026-10-04,14:00,Start Kvinner,Tromsø IL,Sparebanken Norge Arena Kristiansand,1,0,Marion Glatved-Prahl Myrvold 22',773,,played
+K-2026-21,kvinner,1. divisjon kvinner,21,2026-10-17,13:00,Bryne,Start Kvinner,Bryne stadion,,,,,,
+K-2026-22,kvinner,1. divisjon kvinner,22,2026-10-24,13:00,Start Kvinner,Fyllingsdalen,Sparebanken Norge Arena Kristiansand,,,,,https://ikstart.ticketco.events/no/nb/e/start_kvinner__fyllingsdagen,

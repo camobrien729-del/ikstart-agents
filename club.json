@@ -1,0 +1,44 @@
+{
+  "club_name": "IK Start",
+  "language": "nb",
+  "timezone": "Europe/Oslo",
+  "teams": {
+    "kvinner": {
+      "name": "Start Kvinner",
+      "short": "Start",
+      "label_nb": "Kvinner",
+      "label_en": "Women"
+    },
+    "herrer": {
+      "name": "IK Start",
+      "short": "Start",
+      "label_nb": "Herrer",
+      "label_en": "Men"
+    }
+  },
+  "site_url": "https://camobrien729-del.github.io/ikstart-agents",
+  "draft_hours_local": [
+    7,
+    19
+  ],
+  "newsletter": {
+    "name": "Game Update",
+    "send_weekday": "monday",
+    "send_time_local": "12:00",
+    "public_web_archive": false
+  },
+  "links": {
+    "website": "https://www.ikstart.no",
+    "tickets": "https://ikstart.ticketco.shop/",
+    "instagram": "https://www.instagram.com/startkvinner/",
+    "facebook": "https://www.facebook.com/startkvinner",
+    "volunteer": "https://www.ikstartkvinner.no/frivillig",
+    "newsletter_signup": ""
+  },
+  "colors": {
+    "yellow": "#FFD320",
+    "black": "#111111",
+    "blue": "#3550A8",
+    "paper": "#F4F2EC"
+  }
+}

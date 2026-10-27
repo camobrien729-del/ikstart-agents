@@ -1,0 +1,93 @@
+name: IK Start agents
+
+on:
+  schedule:
+    # Every 30 minutes. The agents look for news at 07:00 and 19:00 Norway time,
+    # and check the sheet for IK Start's answers (JA / ENDRE / NEI) on every run.
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "check = normal run · newsletter / website = write a new draft right now"
+        type: choice
+        options: [check, newsletter, website]
+        default: check
+      feedback:
+        description: "Optional: what the writers should change or focus on"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ikstart-agents
+  cancel-in-progress: false
+
+jobs:
+  agents:
+    name: Scout, write, fact-check, publish
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.run.outputs.published }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run the agents
+        id: run
+        env:
+          SHEET_ID: ${{ vars.SHEET_ID }}
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'gemini' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          KIT_OWNER_TAG_ID: ${{ vars.KIT_OWNER_TAG_ID }}
+          KIT_FAN_TAG_ID: ${{ vars.KIT_FAN_TAG_ID }}
+          KIT_EMAIL_TEMPLATE_ID: ${{ vars.KIT_EMAIL_TEMPLATE_ID }}
+          OWNER_EMAILS: ${{ vars.OWNER_EMAILS }}
+          NEWSLETTER_LANGUAGE: ${{ vars.NEWSLETTER_LANGUAGE }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          MODE: ${{ inputs.mode || 'check' }}
+          FEEDBACK: ${{ inputs.feedback }}
+        run: |
+          if [ "$MODE" = "check" ]; then
+            python -m agent.run tick
+          else
+            python -m agent.run draft --mode "$MODE"
+          fi
+      - name: Save what changed
+        if: always()
+        run: |
+          git config user.name "IK Start agents"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A state pending docs/data
+          if git diff --cached --quiet; then echo "Nothing to save"; exit 0; fi
+          git commit -m "Agents: $(date -u +'%Y-%m-%d %H:%M') update"
+          git pull --rebase --quiet
+          git push
+
+  website:
+    name: Put the approved update on the website
+    needs: agents
+    if: needs.agents.outputs.published == 'yes'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
