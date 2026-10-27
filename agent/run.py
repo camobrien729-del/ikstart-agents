@@ -22,7 +22,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import approvals, checker, kit, render, scout, writers
+from . import approvals, checker, kit, llm, render, scout, writers
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out"
@@ -86,7 +86,7 @@ def site_url(c: dict) -> str:
 
 
 def sheet_link() -> str:
-    sid = os.environ.get("SHEET_ID", "").strip()
+    sid = scout.sheet_id()
     return f"https://docs.google.com/spreadsheets/d/{sid}/edit" if sid else ""
 
 
@@ -393,6 +393,10 @@ def main(argv=None) -> int:
         log("## The club sheet needs a fix\nNothing was drafted or sent.\n\n" + str(e))
         print(str(e), file=sys.stderr)
         return 3
+    except llm.LLMError as e:
+        log("## The AI could not be reached\nNothing was sent. Check the GEMINI_API_KEY secret "
+            "(GitHub → Settings → Secrets and variables → Actions).\n\n" + str(e))
+        return 5
 
 
 if __name__ == "__main__":

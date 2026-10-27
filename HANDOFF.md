@@ -12,14 +12,14 @@ Before you start, IK Start needs:
 2. IK Start: accept the transfer email.
 3. IK Start: **Settings → Pages** → check that *Source* is **GitHub Actions**.
    The website moves to `https://<ikstart-account>.github.io/ikstart-agents/`. The agents pick up the new address automatically.
-4. IK Start: **Settings → Secrets and variables → Actions**. Check that the variable `SHEET_ID` and the secrets `GEMINI_API_KEY` and `KIT_API_KEY` are still there. In step 3 and 4 below you replace the keys with IK Start's own.
+4. IK Start: **Settings → Secrets and variables → Actions**. Check that the secrets `GEMINI_API_KEY` and `KIT_API_KEY` are still there. In step 3 and 4 below you replace the keys with IK Start's own.
 5. IK Start: **Actions** tab → if GitHub asks, click **Enable workflows**.
 6. Cam: remove yourself under **Settings → Collaborators** if IK Start wants that.
 
 ## 2. The club sheet (facts and approvals)
 1. Cam: open the sheet → **Share** → add IK Start's Google account as **Editor**.
 2. Cam: next to their name, choose **Transfer ownership** (works between ordinary Gmail accounts).
-   - If IK Start uses Google Workspace and the transfer isn't allowed: IK Start opens the sheet → **File → Make a copy**, sets the copy to **Share → Anyone with the link → Viewer**, and pastes the new sheet's ID (the long code in its address between `/d/` and `/edit`) into the GitHub variable `SHEET_ID`.
+   - If IK Start uses Google Workspace and the transfer isn't allowed: IK Start opens the sheet → **File → Make a copy**, sets the copy to **Share → Anyone with the link → Viewer**, and pastes the new sheet's ID (the long code in its address between `/d/` and `/edit`) into `club.json` → `sheet_id` (click the file in GitHub → pencil icon → Commit).
 3. IK Start: in the sheet's **settings** tab, set `owner_emails` to the approvers' addresses.
 4. Add the volunteers who update results as **Editors**. Anyone who is an Editor can also approve.
 

@@ -30,13 +30,20 @@ def sheet_tab_url(sheet_id: str, tab: str) -> str:
     return f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&headers=1&sheet={tab}"
 
 
+def sheet_id() -> str:
+    """The club sheet: GitHub variable SHEET_ID if set, else club.json → sheet_id."""
+    if os.environ.get("SHEET_ID", "").strip():
+        return os.environ["SHEET_ID"].strip()
+    return json.loads((ROOT / "club.json").read_text(encoding="utf-8")).get("sheet_id", "").strip()
+
+
 def tab_source(tab: str) -> str:
-    """Where to read a tab: SHEET_<TAB>_CSV if set, else the shared sheet SHEET_ID."""
+    """Where to read a tab: SHEET_<TAB>_CSV if set, else the shared club sheet."""
     if os.environ.get(f"SHEET_{tab.upper()}_CSV"):
         return os.environ[f"SHEET_{tab.upper()}_CSV"]
-    if os.environ.get("SHEET_ID"):
-        return sheet_tab_url(os.environ["SHEET_ID"].strip(), tab)
-    raise DataError("The club sheet is not connected: set the GitHub variable SHEET_ID.")
+    if sheet_id():
+        return sheet_tab_url(sheet_id(), tab)
+    raise DataError("The club sheet is not connected: put its ID in club.json → sheet_id.")
 
 
 def _read_csv(source: str) -> list[dict]:

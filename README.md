@@ -60,7 +60,7 @@ Every run's result (what was drafted, what failed, what was published) is shown 
 | Language (`nb` or `en`) | `club.json` → `language` |
 | AI key | GitHub → Settings → Secrets → `GEMINI_API_KEY` |
 | Kit key | GitHub → Settings → Secrets → `KIT_API_KEY` |
-| Which sheet the agents read | GitHub → Settings → Variables → `SHEET_ID` |
+| Which sheet the agents read | `club.json` → `sheet_id` (the long code in the sheet's address) |
 | Custom website address | GitHub → Settings → Variables → `SITE_URL` (only if you add your own domain) |
 
 The sheet must be shared as **Anyone with the link → Viewer** so the agents can read it. Only people you add as **Editor** can change facts or approve.
